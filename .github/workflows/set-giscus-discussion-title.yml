@@ -10,7 +10,9 @@ permissions:
 
 jobs:
   rename:
-    if: startsWith(github.event.discussion.title, 'jsdelivr-post-')
+    if: >-
+      startsWith(github.event.discussion.title, 'jsdelivr-post-') &&
+      !contains(github.event.discussion.body, '<!-- created-by: create-giscus-discussions -->')
     runs-on: ubuntu-latest
 
     steps:
