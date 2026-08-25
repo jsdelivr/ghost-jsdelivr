@@ -179,6 +179,10 @@ module.exports = async ({ github, core }) => {
 		}
 
 		for (const discussion of discussions.nodes) {
+			if (!discussion) {
+				continue;
+			}
+
 			for (const match of discussion.body.matchAll(/[a-f0-9]{40}/gi)) {
 				discussionsByHash.set(match[0].toLowerCase(), discussion.url);
 			}
