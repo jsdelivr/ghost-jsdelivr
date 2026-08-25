@@ -125,7 +125,7 @@ module.exports = async ({ github, core }) => {
 			}
 
 			if (publishedAt > now) {
-				throw new Error('The post has a future publication date.');
+				continue;
 			}
 
 			recentPosts.push({ post, ...validatePost(post) });
